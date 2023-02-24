@@ -1,27 +1,39 @@
-# Next.js + Tailwind CSS Example
+# AIgram
+AIgram is an AI-powered Instagram clone called AIgram, only allowing users to upload AI-generated images using
+the DALLE 2 image generator, providing a unique and creative experience for users.
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+# [Link To Deployed Site]()
+*In the process of deploying
 
-## Deploy your own
+## Features
+- Complete CRUD functionality, enabling users to create, edit, and delete posts, as well as interact with other user’s posts.
+- User authentication with NextAuth and Firebase
+- Uploading and displaying AI-generated images with the DALLE 2 image generator
+- Viewing and liking posts
+- Following and unfollowing other users
+- Searching for users by username
+- Profile view
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Technologies Used
+React
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+TypeScript
 
-## How to use
+Next.js
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Tailwind CSS
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+Firebase
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+NextAuth.js
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+Recoil
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Feed View
+![AI gram pic](https://user-images.githubusercontent.com/90979468/221099153-ff67bb16-97c5-4d1e-b8b0-ee9280184d08.png)
+
+## Profile View
+
+## Image Generation Page
+
+## Sign-In Page
