@@ -2,7 +2,7 @@
 AIgram is an AI-powered Instagram clone called AIgram, only allowing users to upload AI-generated images using
 the DALLE 2 image generator, providing a unique and creative experience for users.
 
-# [Link To Deployed Site]()
+# [Link To Deployed Site]
 *In the process of deploying
 
 ## Features
