@@ -35,5 +35,14 @@ Recoil
 ## Profile View
 
 ## Image Generation Page
+![image](https://user-images.githubusercontent.com/90979468/221395026-99f0f9ca-df03-49a1-bc00-325ca5471b6f.png)
+
+## Upload Post Page
+![image](https://user-images.githubusercontent.com/90979468/221395121-a2e9f09f-18d8-4fda-8b91-8265a9ee3fdb.png)
 
 ## Sign-In Page
+![image](https://user-images.githubusercontent.com/90979468/221395139-549f0efd-60e6-4d5e-b4d3-e57e973eaecc.png)
+
+## Post Interactions
+![image](https://user-images.githubusercontent.com/90979468/221395234-1da45ef1-f20f-4936-a8d5-339dd1b34571.png)
+
