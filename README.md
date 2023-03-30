@@ -3,7 +3,7 @@ AIgram is an AI-powered Instagram clone called AIgram, only allowing users to up
 the DALLE 2 image generator, providing a unique and creative experience for users.
 
 # [Link To Deployed Site](https://ai-gram.vercel.app/)
-(https://ai-gram.vercel.app/)
+## https://ai-gram.vercel.app/
 
 ## Features
 - Complete CRUD functionality, enabling users to create, edit, and delete posts, as well as interact with other user’s posts.
