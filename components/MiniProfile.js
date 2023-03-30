@@ -1,7 +1,16 @@
 import { signOut, useSession } from "next-auth/react"
+import { useRouter } from 'next/router';
 
 function MiniProfile() {
-    const {data: session} = useSession()
+    const { data: session } = useSession()
+    const router = useRouter();
+
+    const handleSignOut = async () => {
+        await signOut({ callbackUrl: '/' });
+    
+        // Redirect to the home page
+        router.push('/');
+    };
 
     return (
         <div className='flex items-center justify-between mt-14 ml-10'>
@@ -11,7 +20,7 @@ function MiniProfile() {
                 <h3 className='text-sm text-gray-400'>Welcome to Instagram</h3>
             </div>
 
-            <button onClick={signOut} className='text-blue-400 text-sm font-semibold'>Sign Out</button>
+            <button onClick={handleSignOut} className='text-blue-400 text-sm font-semibold'>Sign Out</button>
         </div>
     )
 }

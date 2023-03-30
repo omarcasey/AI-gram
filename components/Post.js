@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react'
 import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import Moment from 'react-moment'
+import Link from 'next/link';
 
 
 function Post({ id, username, userImg, img, caption, timestamp }) {
@@ -52,8 +53,10 @@ function Post({ id, username, userImg, img, caption, timestamp }) {
         <div className='bg-white my-7 border rounded-sm'>
             {/* HEADER */}
             <div className='flex items-center p-5'>
-                <img className='rounded-full h-12 w-12 object-contain border p-1 mr-3' src={userImg} alt='' />
-                <p className='flex-1 font-bold'>{username}</p>
+                <Link className='flex items-center flex-1' href={`/profile/${username}`}>
+                    <img className='rounded-full h-12 w-12 object-contain border p-1 mr-3' src={userImg} alt='' />
+                    <p className='font-bold'>{username}</p>
+                </Link>
                 <EllipsisHorizontalIcon className='h-5' />
             </div>
 

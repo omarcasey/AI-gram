@@ -1,17 +1,23 @@
-import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
+import { collection, onSnapshot, orderBy, query, where } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import Post from './Post'
 import { db } from '../firebase'
 
-function Posts() {
-  const tempUser = 'omarcasey'
+function Posts({ user }) {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    return onSnapshot(query(collection(db, 'posts'), orderBy('timestamp', 'desc')), snapshot => {
-      setPosts(snapshot.docs)
+    let queryRef;
+    if (user) {
+      queryRef = query(collection(db, 'posts'), where('username', '==', user), orderBy('timestamp', 'desc'));
+    } else {
+      queryRef = query(collection(db, 'posts'), orderBy('timestamp', 'desc'));
+    }
+    return onSnapshot(queryRef, (snapshot) => {
+      setPosts(snapshot.docs);
     });
-  }, [db])
+  }, [db, user]);
+  
 
   return (
     <div>
@@ -25,19 +31,6 @@ function Posts() {
           timestamp={post.data().timestamp}
         />
       ))}
-
-      {/* {posts.map((post) => {
-        if (post.data().username == tempUser) {
-          <Post key={post.id}
-            id={post.id}
-            username={post.data().username}
-            userImg={post.data().profileImg}
-            img={post.data().image}
-            caption={post.data().caption}
-            timestamp={post.data().timestamp}
-          />
-        }
-      })} */}
     </div>
   )
 }
