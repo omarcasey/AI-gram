@@ -26,15 +26,11 @@ function LikedPosts() {
                 return postData;
             });
 
-            console.log(postPromises)
-
             const postSnapshots = await Promise.all(postPromises);
-            console.log(postSnapshots)
             const likedPosts = postSnapshots.map((post) => ({
                 id: post.id,
                 ...post.data(),
             }));
-            console.log(likedPosts)
 
             // Sort the posts by timestamp in chronological order
             likedPosts.sort((a, b) => b.timestamp.toMillis() - a.timestamp.toMillis());

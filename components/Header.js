@@ -48,7 +48,7 @@ function Header({ liked }) {
                             ) : (
                                 <HeartIcon className='navBtn' onClick={() => router.push('/likes')} />
                             )}
-                            <img onClick={() => router.push(`/profile/${session.user.username}`)} src={session.user.image} alt='profile pic' className='h-10 w-10 rounded-full cursor-pointer' />
+                            <Image width={96} height={96} onClick={() => router.push(`/profile/${session.user.username}`)} src={session.user.image} alt='profile pic' className='h-10 w-10 rounded-full cursor-pointer' />
                         </>
                     ) : (
                         <button className='' onClick={signIn}>Sign In</button>

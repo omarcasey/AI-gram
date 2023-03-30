@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../firebase';
+import Image from 'next/image';
 
 function Search() {
     const [searchResults, setSearchResults] = useState([]);
@@ -44,19 +45,25 @@ function Search() {
                     placeholder='Search'
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
-                    autoComplete='off'
+                    autoComplete='new-password'
                 />
                 <div className='absolute left-0 w-full mt-2 bg-white shadow-lg rounded-md'>
                     {searchResults.map((user) => (
                         <div
                             key={user.id}
-                            className='p-2 cursor-pointer hover:bg-gray-100'
+                            className='flex items-center p-2 cursor-pointer hover:bg-gray-100'
                             onClick={() => {
                                 setSearchInput('');
                                 setSearchResults([]);
                                 router.push(`/profile/${user.username}`);
                             }}
                         >
+                            <Image
+                                src={user.profileImg}
+                                alt={user.username}
+                                width={96} height={96}
+                                className='h-8 w-8 rounded-full mr-2'
+                            />
                             <span>{user.username}</span>
                         </div>
                     ))}

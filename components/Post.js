@@ -6,6 +6,8 @@ import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverT
 import { db } from '../firebase';
 import Moment from 'react-moment'
 import Link from 'next/link';
+import Image from 'next/image';
+import PostOptions from './PostOptions'
 
 
 function Post({ id, username, userImg, img, caption, timestamp }) {
@@ -14,6 +16,7 @@ function Post({ id, username, userImg, img, caption, timestamp }) {
     const [comments, setComments] = useState([])
     const [likes, setLikes] = useState([])
     const [hasLiked, setHasLiked] = useState(false)
+    const isPoster = username === session.user.username;
 
     useEffect(() => onSnapshot(query(collection(db, 'posts', id, 'comments'), orderBy('timestamp', 'desc')),
         snapshot => setComments(snapshot.docs)), [db, id]
@@ -54,14 +57,14 @@ function Post({ id, username, userImg, img, caption, timestamp }) {
             {/* HEADER */}
             <div className='flex items-center p-5'>
                 <Link className='flex items-center flex-1' href={`/profile/${username}`}>
-                    <img className='rounded-full h-12 w-12 object-contain border p-1 mr-3' src={userImg} alt='' />
+                    <Image width={96} height={96} className='rounded-full h-12 w-12 object-contain border p-1 mr-3' src={userImg} alt='' />
                     <p className='font-bold'>{username}</p>
                 </Link>
-                <EllipsisHorizontalIcon className='h-5' />
+                {isPoster && (<PostOptions postid={id} initial_caption={caption}/>)}
             </div>
 
             {/* img */}
-            <img src={img} className='object-cover w-full' alt='' />
+            <Image src={img} className='object-cover w-full' alt='' width={1024} height={1024} />
 
             {/* BUTTONS */}
             {session && (
@@ -94,7 +97,7 @@ function Post({ id, username, userImg, img, caption, timestamp }) {
                 <div className='ml-10 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin'>
                     {comments.map(comment => (
                         <div key={comment.id} className='flex items-center space-x-2 mb-3'>
-                            <img src={comment.data().userImage} alt='' className='h-7 rounded-full' />
+                            <Image width={96} height={96} src={comment.data().userImage} alt='' className='h-7 w-7 rounded-full' />
                             <p className='text-sm flex-1'><span className='font-bold mr-1'>{comment.data().username}</span>{comment.data().comment}</p>
                             <Moment className='pr-5 text-xs' fromNow>{comment.data().timestamp?.toDate()}</Moment>
                         </div>

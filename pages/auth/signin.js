@@ -1,4 +1,5 @@
 import { getProviders, signIn as signInto } from 'next-auth/react'
+import Image from 'next/image';
 import Header from '../../components/Header'
 
 // Browser
@@ -7,7 +8,7 @@ function signIn({ providers }) {
         <>
             <Header />
             <div className='flex flex-col items-center justify-center min-h-screen py-2 -mt-56 px-14 text-center'>
-                <img className='w-80' src='https://links.papareact.com/ocw' alt=''/>
+                <Image width={1700} height={350} className='w-80' src='/aigram.png' alt=''/>
                 <p className='font-xs italic'>This app was built for educational purposes</p>
                 <div className='mt-40'>
                     {Object.values(providers).map((provider) => (

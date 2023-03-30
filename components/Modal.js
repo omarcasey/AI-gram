@@ -8,6 +8,7 @@ import { addDoc, collection, doc, serverTimestamp, updateDoc } from "firebase/fi
 import { useSession } from "next-auth/react"
 import { ref, getDownloadURL, uploadString } from "firebase/storage"
 import { Configuration, OpenAIApi } from "openai"
+import Image from "next/image"
 
 const configuration = new Configuration({
     apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
@@ -126,7 +127,7 @@ function Modal() {
                             {/* content here */}
                             <div>
                                 {selectedFile ? (
-                                    <img src={`data:image/png;base64, ${selectedFile}`} className='w-full object-contain cursor-pointer' onClick={() => setSelectedFile(null)} alt='' />
+                                    <Image width={1024} height={1024} src={`data:image/png;base64, ${selectedFile}`} className='w-full object-contain cursor-pointer' onClick={() => setSelectedFile(null)} alt='' />
                                 ) : (
                                     <div onClick={() => generateImage()} className='mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 cursor-pointer'>
                                         <CameraIcon className="h-6 w-6 text-red-600" aria-hidden='true' />
